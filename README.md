@@ -67,7 +67,3 @@ $ python setup.py build_sphinx
 
 The documentation will be created in ./build/sphinx.
 
-
-## Continuous integration tests
-
-[![Build Status](https://travis-ci.org/RDFLib/rdflib-rdfa-microdata.svg?branch=master)](https://travis-ci.org/RDFLib/rdflib-rdfa-microdata)

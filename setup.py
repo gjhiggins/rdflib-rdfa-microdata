@@ -97,7 +97,10 @@ setup(
         "requests",
         "html5lib",
         "pyrdfa3",
-        "pymicrodata @ git+https://github.com/RDFLib/pymicrodata.git#egg=pymicrodata",
+        "pyMicrodata",
+    ],
+    dependency_links = [
+        "git+https://github.com/RDFLib/pymicrodata.git#egg=pyMicrodata"
     ],
     tests_require=["pytest"],
     command_options={
