@@ -1,0 +1,4 @@
+rdflib>=6.0.0
+requests
+pyrdfa3
+git+https://github.com/RDFLib/pymicrodata.git#egg=pymicrodata
