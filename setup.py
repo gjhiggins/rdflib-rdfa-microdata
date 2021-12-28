@@ -95,9 +95,9 @@ setup(
     install_requires=[
         "rdflib>=6.0.0",
         "requests",
-        "pyrdfa3"],
-    dependency_links=[
-        "git+https://github.com/RDFLib/pymicrodata.git#egg=pymicrodata"
+        "html5lib",
+        "pyrdfa3",
+        "pymicrodata @ git+https://github.com/RDFLib/pymicrodata.git#egg=pymicrodata",
     ],
     tests_require=["pytest"],
     command_options={
@@ -110,29 +110,20 @@ setup(
     entry_points={
         "rdf.plugins.parser": [
             "hturtle = rdflib_rdfa_microdata.hturtle:HTurtleParser",
-
             "rdfa = rdflib_rdfa_microdata.structureddata:RDFaParser",
-
             "mdata = rdflib_rdfa_microdata.structureddata:MicrodataParser",
-
             "microdata = rdflib_rdfa_microdata.structureddata:MicrodataParser",
-
             # A convenience to use the RDFa 1.0 syntax (although the parse method can
             # be invoked with an rdfa_version keyword, too)
             "rdfa1.0 = rdflib_rdfa_microdata.structureddata:RDFa10Parser",
-
             # Just for the completeness, if the user uses this
             "rdfa1.1 = rdflib_rdfa_microdata.structureddata:RDFaParser",
-
             # An HTML file may contain both microdata, rdfa, or turtle. If the user
             # wants them all, the parser below simply invokes all:
             "html = rdflib_rdfa_microdata.structureddata:StructuredDataParser",
-
             # Some media types are also bound to RDFa
             "application/svg+xml = rdflib_rdfa_microdata.structureddata:RDFaParser",
-
             "application/xhtml+xml = rdflib_rdfa_microdata.structureddata:RDFaParser",
-
             "text/html = rdflib_rdfa_microdata.structureddata:StructuredDataParser",
         ],
     },

@@ -16,6 +16,14 @@ The easiest way to install the RDFLib RDFa-microdata plugin is directly from PyP
 pip install rdflib-rdfa-microdata
 ```
 
+Or, direct from the source code repository
+
+
+```shell
+python -m pip install git+https://github.com/RDFLib/rdflib-rdfa-microdata.git#egg=rdflib-rdfa-microdata
+```
+
+
 Otherwise you can download the source and install it directly by running:
 
 ```shell
@@ -29,16 +37,20 @@ The plugin parser and serializer are automatically registered if installed by
 setuptools.
 
 ```python
->>> from rdflib import Graph, plugin
->>> from rdflib.serializer import Serializer
+>>> from rdflib import Graph
 
->>> testrdf = """
-... @prefix dcterms: <http://purl.org/dc/terms/> .
-... <http://example.org/about>
-...     dcterms:title "Someone's Homepage"@en .
+>>> testhtml = """
+... <p vocab="http://Schema.org/" typeof="PostalAddress"><br>
+...   <span property="name">Google Inc.</span><br>
+...   P.O. Box <span property="postOfficeBoxNumber">1234</span><br>
+...   <span property="addressLocality">Mountain View</span>,<br>
+...   <span property="addressRegion">CA</span><br>
+...   <span property="postalCode">94043</span><br>
+...   <span property="addressCountry">United States</span><br>
+... </p>
 ... """
 
->>> g = Graph().parse(data=testrdf, format='n3')
+>>> g = Graph().parse(data=testhtml, format='html')
 
 ```
 
